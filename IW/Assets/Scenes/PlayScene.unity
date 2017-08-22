@@ -7113,7 +7113,7 @@ GameObject:
   - component: {fileID: 1123923654}
   - component: {fileID: 1123923653}
   m_Layer: 5
-  m_Name: SceneTemplate
+  m_Name: LevelTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
