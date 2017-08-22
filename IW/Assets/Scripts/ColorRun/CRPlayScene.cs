@@ -15,7 +15,7 @@ public class CRPlayScene : MonoBehaviour {
     void SetChildrenHeights () {
         float height = StaticMethods.sceneHeight - 48 - 100; ////WTEGFWTFS
         Transform blockTr = transform.Find("BlockContainer");
-        RectTransform blockRt = blockTr.GetComponent<RectTransform>();
+        //RectTransform blockRt = blockTr.GetComponent<RectTransform>();
         float blockChildCount = blockTr.childCount;
         float childPosY = 0;
         for (int i = 0 ; i < blockChildCount ; i++) {

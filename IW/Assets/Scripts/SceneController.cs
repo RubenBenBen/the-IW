@@ -13,7 +13,6 @@ public class SceneController : MonoBehaviour {
     private GameObject currLevel;
 
     private int currentLevelIndex;
-
     private string[] levelNames;
 
     private void CreateLevelList () {
