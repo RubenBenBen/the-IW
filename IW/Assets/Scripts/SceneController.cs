@@ -16,11 +16,10 @@ public class SceneController : MonoBehaviour {
     private string[] levelNames;
 
     private void CreateLevelList () {
-        levelNames = new string[365];
-        levelNames[0] = "LoadingBar";
-        levelNames[1] = "ZipZap";
-        levelNames[2] = "ColorRun";
-        levelNames[3] = "LightOff";
+        levelNames = new string[transform.childCount];
+        for (int i = 0 ; i < levelNames.Length ; i++) {
+            levelNames[i] = transform.GetChild(i).name;
+        }
     }
 
     void Awake () {

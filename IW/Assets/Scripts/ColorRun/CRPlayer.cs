@@ -12,6 +12,7 @@ public class CRPlayer : MonoBehaviour {
     private Vector2 myPos;
     private Vector2 swapPos;
     private float timeRate = 0.01f;
+    public CRPlaySceneHelper playSceneHelper;
 
 
     void Start () {
@@ -28,7 +29,7 @@ public class CRPlayer : MonoBehaviour {
     private void SetData () {
         SetColor();
         SetText();
-        StaticMethods.touchOff = false;
+        playSceneHelper.touchOff = false;
     }
 
     private void SetColor () {
@@ -37,7 +38,7 @@ public class CRPlayer : MonoBehaviour {
     }
 
     private void SetText () {
-        transform.GetChild(0).GetComponent<Text>().text = StaticMethods.GetTextFromColor(GetComponent<Image>().color);
+        transform.GetChild(0).GetComponent<Text>().text = playSceneHelper.GetTextFromColor(GetComponent<Image>().color);
     }
 
     private void ChangeColors (GameObject obj) {
@@ -50,10 +51,10 @@ public class CRPlayer : MonoBehaviour {
     }
 
     public void SwapColors () {
-        if (!StaticMethods.touchOff) {
+        if (!playSceneHelper.touchOff) {
             trueSwapObject = EventSystem.current.currentSelectedGameObject;
             if (trueSwapObject.GetComponent<Image>().color != GetComponent<Image>().color) {
-                StaticMethods.touchOff = true;
+                playSceneHelper.touchOff = true;
                 AdjustDublicates();
                 InvokeRepeating("ObjectsAnimation", 0, timeRate);
                 ChangeColors(trueSwapObject);

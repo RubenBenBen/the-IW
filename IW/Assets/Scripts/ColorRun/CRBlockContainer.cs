@@ -7,6 +7,7 @@ public class CRBlockContainer : MonoBehaviour {
     private float colCount = 6; //max 8
     private float rowCount = 6; //max 6
     public SceneController sceneController;
+    public CRPlaySceneHelper playSceneHelper;
 
     void Awake () {
 
@@ -53,10 +54,10 @@ public class CRBlockContainer : MonoBehaviour {
                 } else if (img.color == Color.magenta) {
                     img.color = CRPlayScene.colors[0];
                 }
-                textClass.text = StaticMethods.GetTextFromColor(img.color);
+                textClass.text = playSceneHelper.GetTextFromColor(img.color);
             }
         }
-        StaticMethods.touchOff = false;
+        playSceneHelper.touchOff = false;
     }
 
     public void ColorBlocks () {
@@ -66,7 +67,7 @@ public class CRBlockContainer : MonoBehaviour {
                 int rand = Random.Range(0, CRPlayScene.colors.Length);
                 Image img = row.GetChild(k).GetComponent<Image>();
                 img.color = CRPlayScene.colors[rand];
-                row.GetChild(k).GetChild(0).GetComponent<Text>().text = StaticMethods.GetTextFromColor(img.color);
+                row.GetChild(k).GetChild(0).GetComponent<Text>().text = playSceneHelper.GetTextFromColor(img.color);
             }
         }
     }
